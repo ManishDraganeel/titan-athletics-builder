@@ -4,7 +4,7 @@ import { Star, ShoppingBag, Heart, Truck, Shield, RotateCcw, Check, Minus, Plus 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { getProduct, relatedProducts } from "@/data/products";
+import { getProduct, relatedProducts, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
 export const Route = createFileRoute("/product/$slug")({
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/product/$slug")({
 });
 
 function ProductPage() {
-  const { product, related } = Route.useLoaderData();
+  const { product, related } = Route.useLoaderData() as { product: Product; related: Product[] };
   const { add } = useCart();
   const [size, setSize] = useState(product.sizes[2] ?? product.sizes[0]);
   const [color, setColor] = useState(product.colors[0].name);
