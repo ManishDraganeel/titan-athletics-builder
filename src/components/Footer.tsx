@@ -7,13 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="h-10 w-10 rounded bg-gradient-to-br from-primary to-secondary grid place-items-center">
-                <span className="font-display text-2xl text-titan">T</span>
-              </div>
-              <span className="font-display text-3xl tracking-widest">
-                TITAN<span className="text-primary">.</span>
-              </span>
+            <Link to="/" className="flex items-center mb-6">
+              <img src="/logo.png" alt="Titan Athletics" className="h-14 sm:h-16 w-auto object-contain" />
             </Link>
             <p className="text-sm text-foreground/60 max-w-xs mb-6">
               Elite performance gear engineered for champions. Built in the lab. Tested in the arena.

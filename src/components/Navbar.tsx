@@ -31,16 +31,8 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="relative h-9 w-9">
-            <div className="absolute inset-0 rounded bg-primary blur-md opacity-60 group-hover:opacity-100 transition-opacity" />
-            <div className="relative h-full w-full rounded bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="font-display text-xl text-titan">T</span>
-            </div>
-          </div>
-          <span className="font-display text-2xl tracking-widest">
-            TITAN<span className="text-primary">.</span>
-          </span>
+        <Link to="/" className="flex items-center group">
+          <img src="/logo.png" alt="Titan Athletics" className="h-12 sm:h-16 w-auto object-contain" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
