@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { CreditCard, Lock, Check, Truck } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -12,8 +12,8 @@ export const Route = createFileRoute("/checkout")({
 
 function CheckoutPage() {
   const { items, subtotal, clear } = useCart();
-  const navigate = useNavigate();
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [, setStep] = useState<1 | 2 | 3>(1);
+  void setStep;
   const [done, setDone] = useState(false);
 
   const shipping = subtotal > 100 ? 0 : 12;
