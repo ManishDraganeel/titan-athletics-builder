@@ -12,8 +12,6 @@ export const Route = createFileRoute("/checkout")({
 
 function CheckoutPage() {
   const { items, subtotal, clear } = useCart();
-  const [, setStep] = useState<1 | 2 | 3>(1);
-  void setStep;
   const [done, setDone] = useState(false);
 
   const shipping = subtotal > 100 ? 0 : 12;
@@ -73,7 +71,7 @@ function CheckoutPage() {
               {/* Steps indicator */}
               <div className="flex gap-2 mb-8">
                 {[1, 2, 3].map((s) => (
-                  <div key={s} className={`flex-1 h-1 rounded-full ${step >= s ? "bg-primary" : "bg-white/10"}`} />
+                  <div key={s} className={`flex-1 h-1 rounded-full ${s <= 1 ? "bg-primary" : "bg-white/10"}`} />
                 ))}
               </div>
 
