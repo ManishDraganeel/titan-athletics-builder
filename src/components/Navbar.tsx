@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Search, ShoppingBag, User, Menu, X, Heart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const links = [
   { to: "/", label: "Home" },
@@ -14,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -62,13 +64,15 @@ export default function Navbar() {
           <button className="hidden sm:grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition" aria-label="Wishlist">
             <Heart className="h-5 w-5" />
           </button>
-          <button className="grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition relative" aria-label="Cart">
+          <Link to="/cart" className="grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition relative" aria-label="Cart">
             <ShoppingBag className="h-5 w-5" />
-            <span className="absolute top-1 right-1 h-4 w-4 rounded-full bg-secondary text-[10px] font-bold text-titan grid place-items-center">3</span>
-          </button>
-          <button className="hidden sm:grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition" aria-label="Account">
+            {count > 0 && (
+              <span className="absolute top-1 right-1 h-4 w-4 rounded-full bg-secondary text-[10px] font-bold text-titan grid place-items-center">{count}</span>
+            )}
+          </Link>
+          <Link to="/account" className="hidden sm:grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition" aria-label="Account">
             <User className="h-5 w-5" />
-          </button>
+          </Link>
           <button
             className="lg:hidden grid place-items-center h-10 w-10 rounded-full hover:bg-white/5 transition"
             onClick={() => setOpen(!open)}
